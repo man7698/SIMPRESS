@@ -1,0 +1,52 @@
+﻿@model IEnumerable<PROVASIMPRESS.Models.Produto>
+
+<p>
+    @Html.ActionLink("Cadastrar", "incluir")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NOME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DESCRICAO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ATIVO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PERECIVEL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IDCATEGORIA)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NOME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DESCRICAO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ATIVO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PERECIVEL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IDCATEGORIA)
+        </td>
+
+
+        <td>
+            @Html.ActionLink("Editar", "incluir", new { id = item.ID }, new { @class = "btn btn-success" }) |
+            @Html.ActionLink("Deletar", "excluir", new { id = item.ID }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>
